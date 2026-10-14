@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YOJG PORTFOLIO — 이유정</title>
+  <meta name="description" content="작은 문제에서 새로운 가능성을 찾는 이유정의 포트폴리오">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+  <!-- 돌 일러스트 공용 SVG 정의 (그라데이션 / 점묘 필터) -->
+  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gL" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f3efea"/><stop offset=".55" stop-color="#c2bcb5"/><stop offset="1" stop-color="#77716b"/>
+      </linearGradient>
+      <linearGradient id="gD" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ddd8d2"/><stop offset=".5" stop-color="#948e87"/><stop offset="1" stop-color="#443f3b"/>
+      </linearGradient>
+      <radialGradient id="gShadow">
+        <stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="fL" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="1" seed="4" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 .1  0 0 0 0 .09  0 0 0 0 .08  0 0 0 -10 4.7" result="dots"/>
+        <feComposite in="dots" in2="SourceAlpha" operator="in" result="d"/>
+        <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="d"/></feMerge>
+      </filter>
+      <filter id="fD" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="9" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 .08  0 0 0 0 .07  0 0 0 0 .06  0 0 0 -10 5.3" result="dots"/>
+        <feComposite in="dots" in2="SourceAlpha" operator="in" result="d"/>
+        <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="d"/></feMerge>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- 로딩: 돌이 하나씩 쌓이고, 흰 계단 패널이 열린다 -->
+  <div class="loader" id="loader" aria-live="polite">
+    <div class="loader__panels" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="loader__body">
+      <div class="loader__tower" data-tower data-drop></div>
+      <p class="loader__title">YOJG PORTFOLIO</p>
+      <p class="loader__count"><span id="loaderCount">0</span>%</p>
+    </div>
+  </div>
+
+  <!-- 좌측 상단 로고 (스크롤 시 등장, 클릭 시 메인으로) -->
+  <a class="logo" id="logo" href="#home" aria-label="메인으로 이동">YOJG</a>
+
+  <!-- 우측 상단 고정 메뉴 -->
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav">MENU</button>
+  <nav class="nav" id="nav" aria-label="메인 메뉴">
+    
+    
+    <a href="#projects" data-link="projects">PROJECTS</a>
+    <a href="#about" data-link="about">ABOUT</a>
+    <a href="#skills" data-link="skills">SKILLS</a>
+    <a href="#contact" data-link="contact">CONTACT</a>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section class="hero" id="home" data-section>
+      <div class="hero__tower" id="heroTower" data-tower></div>
+
+      <div class="hero__bars" aria-hidden="true">
+        <svg class="hero__lines" viewBox="0 0 1935 965" preserveAspectRatio="none">
+          <line x1="14" y1="832" x2="727" y2="388" stroke="#7ab8e0"/>
+          <line x1="0" y1="699" x2="1098" y2="894" stroke="#0a0a0a"/>
+          <line x1="715" y1="901" x2="1935" y2="481" stroke="#f4e86d"/>
+          <line x1="1757" y1="0" x2="1662" y2="736" stroke="#7ab8e0"/>
+        </svg>
+        <svg class="hero__lines hero__lines--top" viewBox="0 0 1935 965" preserveAspectRatio="none">
+          <line x1="0" y1="207" x2="763" y2="473" stroke="#f0605d"/>
+        </svg>
+      </div>
+      <h1 class="hero__title" aria-label="YOJG PORTFOLIO">
+        <span class="cut cut--1">YOJG</span>
+        <span class="cut cut--2">PORT</span>
+        <span class="cut cut--3">FOLiO</span>
+      </h1>
+
+      <!-- 흰 사각으로 뚫린 창 -->
+      <figure class="window w1"><div data-tower data-slice data-view="150 70 120 120"></div><figcaption>(HTML)</figcaption></figure>
+      <figure class="window w2"><div data-tower data-slice data-view="130 285 200 130"></div><figcaption>(CSS)</figcaption></figure>
+      <figure class="window w3"><div data-tower data-slice data-view="285 380 135 135"></div><figcaption>(JS)</figcaption></figure>
+      <figure class="window w4"><div data-tower data-slice data-view="140 480 260 230"></div><figcaption>(REACT)</figcaption></figure>
+      <div class="hero__text">
+        <p class="hero__sub"><br></p>
+        <p class="hero__big">SMALL PROBLEM,<br>NEW POSSIBILITY</p>
+        <p class="hero__kr">작은 문제에서<br>새로운 가능성을 찾는</p>
+      </div>
+      <p class="hero__label hero__label--bl">(web)</p>
+      <p class="hero__label hero__label--br">PORTFOLIO 2026 ↓</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects" data-section>
+      <div class="pframe">
+        <h2 class="pframe__title"><span>(01)</span>PROJECT</h2>
+
+        <svg class="pframe__lines" viewBox="0 0 616 860" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="0" y1="70" x2="400" y2="252"/>
+          <line x1="290" y1="150" x2="485" y2="490"/>
+          <line x1="70" y1="612" x2="510" y2="433"/>
+          <line x1="60" y1="582" x2="616" y2="788"/>
+        </svg>
+
+        <article class="pcard reveal" data-project="0" tabindex="0" role="button" style="left:11%;top:12.6%;--lx:0%">
+          <div class="pcard__thumb"></div>
+          <div class="pcard__info"><h3>말모이 <em>8인 프로젝트</em></h3><p>잊고 있던 감정 단어를 찾는 인터랙티브 체험형 리듬게임</p><small>프로그래밍 · 2026.09 ~ 진행 중</small></div>
+        </article>
+        <article class="pcard pcard--right reveal" data-project="1" tabindex="0" role="button" style="left:49.5%;top:31%;--mw:40cqw">
+          <div class="pcard__thumb"></div>
+          <div class="pcard__info"><h3>DIV <em>3인 프로젝트</em></h3><p>기부 이후 경험을 연결하는 기부 서비스 소개 웹사이트</p><small>웹 디자인 · 프로그래밍 · 2026.03 ~ 06</small></div>
+        </article>
+        <article class="pcard reveal" data-project="2" tabindex="0" role="button" style="left:13%;top:48.84%;--lx:0%">
+          <div class="pcard__thumb"></div>
+          <div class="pcard__info"><h3>Is Life <em>1인 프로젝트</em></h3><p>경제적 불안정 삶을 체험하는 시리어스 게임</p><small>2026.05 ~ 06</small></div>
+        </article>
+        <article class="pcard reveal" data-project="3" tabindex="0" role="button" style="left:49%;top:72.09%;--lx:0%;--mw:36cqw">
+          <div class="pcard__thumb"></div>
+          <div class="pcard__info"><h3>도자기 <em>1인 프로젝트</em></h3><p>한국 전통 도자기를 소개하는 웹사이트</p><small>2026.05 ~ 06</small></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" data-section>
+      <div class="about__photo reveal"></div>
+      <div class="about__body">
+        <div class="pills reveal"><a class="pill" href="assets/resume.pdf" download="이유정_이력서.pdf">이력서 PDF ↓</a><a class="pill" href="https://github.com/Leeyoujoungg" target="_blank" rel="noopener">GITHUB ↗</a></div>
+        <p class="about__slogan reveal">웹 인터랙션을 설계하고 구현하는
+          <br>디자인 개발자<strong>이유정</strong> 입니다</p>
+        <dl class="about__info reveal">
+          <div><dt>BIRTHDAY</dt><dd>2005.05.03</dd></div>
+          <div><dt>E-MAIL</dt><dd><a href="mailto:youkh0503@gmail.com">youkh0503@gmail.com</a></dd></div>
+          <div><dt>EDUCATION</dt><dd>계원예술대학교 디지털미디어디자인과 <small>2027.02 졸업</small><br>태릉고등학교 <small>2024.02 졸업</small></dd></div>
+          <div><dt>ACTIVITY</dt><dd>전공 연합 PT · 3D디자인 우수작 선정 및 발표<br>졸업준비위원회 · 하드웨어팀<br>학반 부과대</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills" data-section>
+      <header class="head reveal"><span>(02)</span><h2>SKILLS</h2></header>
+      <div class="skills__cols">
+        <div class="skills__group reveal">
+          <h3>주요 <small>MAIN</small></h3>
+          <ul>
+            <li><b>HTML</b><div class="sk"><p>시맨틱 마크업으로 페이지 구조를 설계하고, 반응형 레이아웃과 애니메이션·트랜지션을 활용한 <br>인터랙티브 웹 구현 가능</p><span class="lv" aria-label="숙련도 85%"><span class="lv__bar"><i style="--lv:85%"></i></span><em>85%</em></span></div></li>
+            <li><b>CSS</b><div class="sk"><p>반응형 레이아웃과 트랜지션으로 인터랙티브 웹의 시각 표현 구현 가능</p><span class="lv" aria-label="숙련도 80%"><span class="lv__bar"><i style="--lv:80%"></i></span><em>80%</em></span></div></li>
+            <li><b>JavaScript</b><div class="sk"><p>이벤트 제어로 인터랙션을 구현하고, 횡스크롤 게임 상태 및 동적 콘텐츠 렌더링 구현 가능</p><span class="lv" aria-label="숙련도 75%"><span class="lv__bar"><i style="--lv:75%"></i></span><em>75%</em></span></div></li>
+            <li><b>React</b><div class="sk"><p>컴포넌트 단위 UI 제작 및 상태관리 활용, 스타일링 및 상태 관리 구현 가능</p><span class="lv" aria-label="숙련도 65%"><span class="lv__bar"><i style="--lv:65%"></i></span><em>65%</em></span></div></li>
+            <li><b>Unity (C#)</b><div class="sk"><p>캐릭터 이동, 충돌 감지, 오브젝트 생성·제어를 구현하여 2D,3D 등 간단한 게임 제작 가능</p><span class="lv" aria-label="숙련도 60%"><span class="lv__bar"><i style="--lv:60%"></i></span><em>60%</em></span></div></li>
+          </ul>
+        </div>
+        <div class="skills__group reveal">
+          <h3>보조 <small>SUB</small></h3>
+          <ul>
+            <li><b>Figma</b><div class="sk"><p>UI 설계, 프로토타이핑, 컴포넌트 구성 가능</p><span class="lv" aria-label="숙련도 75%"><span class="lv__bar"><i style="--lv:75%"></i></span><em>75%</em></span></div></li>
+            <li><b>Illustrator</b><div class="sk"><p>그래픽 요소 제작 가능</p><span class="lv" aria-label="숙련도 70%"><span class="lv__bar"><i style="--lv:70%"></i></span><em>70%</em></span></div></li>
+            <li><b>Photoshop</b><div class="sk"><p>이미지 보정·합성 가능</p><span class="lv" aria-label="숙련도 55%"><span class="lv__bar"><i style="--lv:55%"></i></span><em>55%</em></span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" data-section>
+      <div class="contact__grid">
+        <div class="reveal contact__left">
+          <header class="head"><span>(03)</span><h2>CONTACT</h2></header>
+          <div class="contact__btns">
+            <a class="btn btn--fill" href="assets/resume.pdf" download="이유정_이력서.pdf">이력서 다운로드 ↓</a>
+            <a class="btn" href="mailto:youkh0503@gmail.com">이메일 보내기 ↗</a>
+          </div>
+        </div>
+        <form class="form reveal" id="mailForm" novalidate>
+          <label>이름<input type="text" name="name" autocomplete="name" required></label>
+          <label>회신 받을 이메일<input type="email" name="email" autocomplete="email" required></label>
+          <label>내용<textarea name="msg" rows="5" required></textarea></label>
+          <button class="btn btn--fill" type="submit">메일 작성하기 →</button>
+          <p class="form__note" id="formNote" role="status"></p>
+        </form>
+      </div>
+      <footer class="foot">
+        <span>© 2026 YOJG · 이유정</span>
+        <a href="https://github.com/Leeyoujoungg" target="_blank" rel="noopener">GITHUB ↗</a>
+        <a href="#home">TOP ↑</a>
+      </footer>
+    </section>
+  </main>
+
+    <!-- PROJECT MODAL -->
+  <div class="pmodal" id="pmodal" aria-hidden="true">
+    <div class="pmodal__backdrop" data-close></div>
+    <section class="pmodal__panel" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+      <button class="pmodal__close" type="button" data-close aria-label="닫기">✕</button>
+      <div class="pmodal__thumb" id="pmThumb"></div>
+      <div class="pmodal__body">
+        <p class="pmodal__meta" id="pmMeta"></p>
+        <h3 class="pmodal__title" id="pmTitle"></h3>
+        <p class="pmodal__lead" id="pmLead"></p>
+        <p class="pmodal__desc" id="pmDesc"></p>
+        <ul class="pmodal__list" id="pmList"></ul>
+        <p class="pmodal__stack" id="pmStack"></p>
+        <a class="pmodal__link btn btn--fill" id="pmLink" target="_blank" rel="noopener" hidden>사이트 방문하기 ↗</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
